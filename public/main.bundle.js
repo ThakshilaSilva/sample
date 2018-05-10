@@ -3043,33 +3043,33 @@ var BatchServiceService = (function () {
         this.http = http;
     }
     BatchServiceService.prototype.addEvent = function (data) {
-        return this.http.post("http://localhost:3000/add_event", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
+        return this.http.post("/add_event", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
             .map(function (res) { return res.json(); });
     };
     BatchServiceService.prototype.getEvents = function () {
-        return this.http.get("http://localhost:3000/get_events").map(function (res) { return res.json(); });
+        return this.http.get("/get_events").map(function (res) { return res.json(); });
     };
     BatchServiceService.prototype.addAcaEvent = function (data) {
-        return this.http.post("http://localhost:3000/addAcaEvent", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
+        return this.http.post("/addAcaEvent", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
             .map(function (res) { return res.json(); });
     };
     BatchServiceService.prototype.getAcaEvents = function () {
-        return this.http.get("http://localhost:3000/getAcaEvents").map(function (res) { return res.json(); });
+        return this.http.get("/getAcaEvents").map(function (res) { return res.json(); });
     };
     BatchServiceService.prototype.getSelectedAcaEvent = function (data) {
-        return this.http.post("http://localhost:3000/getSelectedAcaEvent", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
+        return this.http.post("/getSelectedAcaEvent", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
             .map(function (res) { return res.json(); });
     };
     BatchServiceService.prototype.getSelectedBatchEvent = function (data) {
-        return this.http.post("http://localhost:3000/getSelectedBatchEvent", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
+        return this.http.post("/getSelectedBatchEvent", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
             .map(function (res) { return res.json(); });
     };
     BatchServiceService.prototype.updateAcaEvent = function (data) {
-        return this.http.post("http://localhost:3000/updateAcaEvent", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
+        return this.http.post("/updateAcaEvent", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
             .map(function (res) { return res.json(); });
     };
     BatchServiceService.prototype.updateBatchEvent = function (data) {
-        return this.http.post("http://localhost:3000/updateBatchEvent", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
+        return this.http.post("/updateBatchEvent", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
             .map(function (res) { return res.json(); });
     };
     BatchServiceService.prototype.uploadAvatar = function (event) {
@@ -3085,7 +3085,7 @@ var BatchServiceService = (function () {
             // headers.append('Content-Type', 'multipart/form-data');
             // headers.append('Accept', 'application/json');
             console.log(file);
-            this.http.post('http://localhost:3000/upload_avatar', { img: file.name }, { headers: headers })
+            this.http.post('/upload_avatar', { img: file.name }, { headers: headers })
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) { return console.log('success'); }, function (error) { return console.log(error); });
         }
@@ -3148,33 +3148,33 @@ var UserService = (function () {
         return this.username;
     };
     UserService.prototype.queryUser = function (data) {
-        return this.http.post('http://localhost:3000/get_user', JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
+        return this.http.post('/get_user', JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
             .map(function (res) { return res.json(); });
     };
     UserService.prototype.addUser = function (data) {
-        return this.http.post("http://localhost:3000/add_new_user", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
+        return this.http.post("/add_new_user", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
             .map(function (res) {
             console.log(res);
             return res.json();
         });
     };
     UserService.prototype.updateUser = function (data) {
-        return this.http.post("http://localhost:3000/updateUser", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
+        return this.http.post("/updateUser", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
             .map(function (res) { return res.json(); });
     };
     UserService.prototype.updateProfPic = function (data) {
-        return this.http.post("http://localhost:3000/updateProfilePic", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
+        return this.http.post("/updateProfilePic", JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
             .map(function (res) { return res.json(); });
     };
     UserService.prototype.getMembers = function () {
-        return this.http.get("http://localhost:3000/getMembers").map(function (res) { return res.json(); });
+        return this.http.get("/getMembers").map(function (res) { return res.json(); });
     };
     UserService.prototype.queryAchievements = function (data) {
-        return this.http.post('http://localhost:3000/getAchievements', JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
+        return this.http.post('/getAchievements', JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
             .map(function (res) { return res.json(); });
     };
     UserService.prototype.addAchievement = function (data) {
-        return this.http.post('http://localhost:3000/addAchievement', JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
+        return this.http.post('/addAchievement', JSON.stringify(data), new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' }) }))
             .map(function (res) { return res.json(); });
     };
     return UserService;

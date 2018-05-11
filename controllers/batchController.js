@@ -17,12 +17,13 @@ const addEvent = (event) => {
             event.album2,
             event.album3
         ], (err, res) => {
+            connection.end();
             if (err) {
                 reject(err);
             }
             resolve(res);
         });
-        connection.end();
+
     }).catch((error) => {
         reject(error);
     });
@@ -30,7 +31,8 @@ const addEvent = (event) => {
 
 const addAcaEvent = (event) => {
     return new Promise((resolve, reject) => {
-        connection.connect();
+        connection.end();
+
         connection.query("INSERT INTO upcomingevent VALUE(?,?,?,?,?)", [
             null,
             event.module,
@@ -38,13 +40,14 @@ const addAcaEvent = (event) => {
             event.description,
             event.date
         ], (err, res) => {
+            connection.connect();
             if (err) {
                 reject(err);
                 console.log(err);
             }
             resolve(res);
         });
-        connection.end();
+
     }).catch((error) => {
         reject(error);
     });
@@ -54,15 +57,17 @@ const addAcaEvent = (event) => {
 
 const getEvents = () => {
     return new Promise((resolve, reject) => {
-        connection.connect();
+        connection.end();
+
         connection.query("SELECT * FROM batchevent",
             (err, res) => {
+                connection.connect();
                 if (err) {
                     reject(err);
                 }
                 resolve(res);
             });
-        connection.end();
+
     }).catch((error) => {
         reject(error);
     });
@@ -70,29 +75,33 @@ const getEvents = () => {
 
 const getAcaEvents = () => { // query every student from the database
     return new Promise((resolve, reject) => {
-        connection.connect();
+        connection.end();
+
         connection.query("select * from upcomingevent",
             (err, res) => {
+                connection.connect();
                 if (err) {
                     reject(err);
                 }
                 resolve(res);
             });
-        connection.end();
+
     });
 };
 
 const getEditableAcaEvent = (item) => {
     return new Promise((resolve, reject) => {
+
         connection.connect();
         connection.query("SELECT * FROM upcomingevent WHERE EventID=?", [item.EventID],
             (err, res) => {
+                connection.end();
                 if (err) {
                     reject(err);
                 }
                 resolve(res);
             });
-        connection.end();
+
     }).catch((error) => {
         reject(error);
     });
@@ -100,15 +109,17 @@ const getEditableAcaEvent = (item) => {
 
 const getEditableBatchEvent = (item) => {
     return new Promise((resolve, reject) => {
+
         connection.connect();
         connection.query("SELECT * FROM batchEvent WHERE EventID=?", [item.EventID],
             (err, res) => {
+                connection.end();
                 if (err) {
                     reject(err);
                 }
                 resolve(res);
             });
-        connection.end();
+
     }).catch((error) => {
         reject(error);
     });
@@ -124,6 +135,7 @@ const updateAcaEvent = (event) => {
             event.detail,
             event.ID
         ], (err, result) => {
+            connection.end();
             if (err) {
                 reject(err);
                 console.log("ERROR " + err);
@@ -131,7 +143,7 @@ const updateAcaEvent = (event) => {
             resolve(result);
             console.log("res " + result);
         });
-        connection.end();
+
     }).catch((error) => {
         console.log(error);
         reject(error);
@@ -150,6 +162,7 @@ const updateBatchEvent = (event) => {
             event.album3,
             event.ID
         ], (err, result) => {
+            connection.end();
             if (err) {
                 reject(err);
                 console.log("ERROR " + err);
@@ -157,7 +170,7 @@ const updateBatchEvent = (event) => {
             resolve(result);
             console.log("res " + result);
         });
-        connection.end();
+
     }).catch((error) => {
         console.log(error);
         reject(error);

@@ -2,6 +2,7 @@ const { connection } = require('../dbConnection');
 
 const addEvent = (event) => {
     return new Promise((resolve, reject) => {
+        connection.connect();
         connection.query("INSERT INTO batchevent VALUE(?,?,?,?,?,?,?,?,?,?,?,?)", [
             null,
             event.eventName,
@@ -21,6 +22,7 @@ const addEvent = (event) => {
             }
             resolve(res);
         });
+        connection.end();
     }).catch((error) => {
         reject(error);
     });
@@ -28,6 +30,7 @@ const addEvent = (event) => {
 
 const addAcaEvent = (event) => {
     return new Promise((resolve, reject) => {
+        connection.connect();
         connection.query("INSERT INTO upcomingevent VALUE(?,?,?,?,?)", [
             null,
             event.module,
@@ -41,6 +44,7 @@ const addAcaEvent = (event) => {
             }
             resolve(res);
         });
+        connection.end();
     }).catch((error) => {
         reject(error);
     });
@@ -50,6 +54,7 @@ const addAcaEvent = (event) => {
 
 const getEvents = () => {
     return new Promise((resolve, reject) => {
+        connection.connect();
         connection.query("SELECT * FROM batchevent",
             (err, res) => {
                 if (err) {
@@ -57,6 +62,7 @@ const getEvents = () => {
                 }
                 resolve(res);
             });
+        connection.end();
     }).catch((error) => {
         reject(error);
     });
@@ -64,6 +70,7 @@ const getEvents = () => {
 
 const getAcaEvents = () => { // query every student from the database
     return new Promise((resolve, reject) => {
+        connection.connect();
         connection.query("select * from upcomingevent",
             (err, res) => {
                 if (err) {
@@ -71,18 +78,21 @@ const getAcaEvents = () => { // query every student from the database
                 }
                 resolve(res);
             });
+        connection.end();
     });
 };
 
 const getEditableAcaEvent = (item) => {
     return new Promise((resolve, reject) => {
+        connection.connect();
         connection.query("SELECT * FROM upcomingevent WHERE EventID=?", [item.EventID],
             (err, res) => {
                 if (err) {
                     reject(err);
                 }
                 resolve(res);
-            })
+            });
+        connection.end();
     }).catch((error) => {
         reject(error);
     });
@@ -90,13 +100,15 @@ const getEditableAcaEvent = (item) => {
 
 const getEditableBatchEvent = (item) => {
     return new Promise((resolve, reject) => {
+        connection.connect();
         connection.query("SELECT * FROM batchEvent WHERE EventID=?", [item.EventID],
             (err, res) => {
                 if (err) {
                     reject(err);
                 }
                 resolve(res);
-            })
+            });
+        connection.end();
     }).catch((error) => {
         reject(error);
     });
@@ -105,6 +117,7 @@ const getEditableBatchEvent = (item) => {
 const updateAcaEvent = (event) => {
 
     return new Promise((resolve, reject) => {
+        connection.connect();
         connection.query("UPDATE upcomingevent SET ModuleCode=?, ModuleName=?, EventDetail=? WHERE EventID=?", [
             event.code,
             event.name,
@@ -118,6 +131,7 @@ const updateAcaEvent = (event) => {
             resolve(result);
             console.log("res " + result);
         });
+        connection.end();
     }).catch((error) => {
         console.log(error);
         reject(error);
@@ -127,6 +141,7 @@ const updateAcaEvent = (event) => {
 const updateBatchEvent = (event) => {
 
     return new Promise((resolve, reject) => {
+        connection.connect();
         connection.query("UPDATE batchEvent SET EventName=?, EventDescription=?, photoAlbum1=?, photoAlbum2=?, photoAlbum3=? WHERE EventID=?", [
             event.name,
             event.description,
@@ -142,6 +157,7 @@ const updateBatchEvent = (event) => {
             resolve(result);
             console.log("res " + result);
         });
+        connection.end();
     }).catch((error) => {
         console.log(error);
         reject(error);

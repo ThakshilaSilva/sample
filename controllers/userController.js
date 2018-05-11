@@ -2,6 +2,7 @@ const { connection } = require('../dbConnection');
 
 const getUser = (user) => {
     return new Promise((resolve, reject) => {
+        connection.connect();
         connection.query("SELECT * FROM user where username=?", [user.username],
             (err, res) => {
                 if (err) {
@@ -9,7 +10,8 @@ const getUser = (user) => {
                 }
                 resolve(res);
                 //console.log(password);
-            })
+            });
+        connection.end();
     }).catch((error) => {
         reject(error);
     });
@@ -17,13 +19,15 @@ const getUser = (user) => {
 
 const getAchievements = (achievement) => {
     return new Promise((resolve, reject) => {
+        connection.connect();
         connection.query("SELECT * FROM userachievement WHERE UserID = ?", [achievement.username],
             (err, res) => {
                 if (err) {
                     reject(err);
                 }
                 resolve(res);
-            })
+            });
+        connection.end();
     }).catch((error) => {
         reject(error);
     });
@@ -31,6 +35,7 @@ const getAchievements = (achievement) => {
 
 const addAchievement = (user) => {
     return new Promise((resolve, reject) => {
+        connection.connect();
         connection.query("INSERT INTO userachievement VALUE(?,?,?,?,?,?,?)", [
             user.username,
             user.field,
@@ -46,6 +51,7 @@ const addAchievement = (user) => {
             }
             resolve(res);
         });
+        connection.end();
     }).catch((error) => {
         reject(error);
 
@@ -56,6 +62,7 @@ const addAchievement = (user) => {
 
 const getUsers = () => {
     return new Promise((resolve, reject) => {
+        connection.connect();
         connection.query("SELECT * FROM user",
             (err, res) => {
                 if (err) {
@@ -64,6 +71,7 @@ const getUsers = () => {
                 resolve(res);
             }
         )
+        connection.end();
     }).catch((error) => {
         reject(error);
     });
@@ -71,6 +79,7 @@ const getUsers = () => {
 
 const getStudents = () => { // query every student from the database
     return new Promise((resolve, reject) => {
+        connection.connect();
         connection.query("select * from user ORDER BY FirstName",
             (err, res) => {
                 if (err) {
@@ -78,11 +87,13 @@ const getStudents = () => { // query every student from the database
                 }
                 resolve(res);
             });
+        connection.end();
     });
 };
 
 const addNewUser = (user) => {
     return new Promise((resolve, reject) => {
+        connection.connect();
         connection.query("INSERT INTO user VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [
             user.username,
             user.fname,
@@ -109,6 +120,7 @@ const addNewUser = (user) => {
             }
             resolve(res);
         });
+        connection.end();
     }).catch((error) => {
         reject(error);
     });
@@ -118,6 +130,7 @@ const addNewUser = (user) => {
 const updateUser = (user) => {
     //console.log(user.linkedIn);
     return new Promise((resolve, reject) => {
+        connection.connect();
         connection.query("UPDATE user SET FirstName=?, LastName=?, ContactNo=?, Address=?, Facebook=?, LinkedIn=? WHERE Username=?", [
             user.firstname,
             user.lastname,
@@ -134,6 +147,7 @@ const updateUser = (user) => {
             resolve(result);
             //console.log("res " + result);
         });
+        connection.end();
     }).catch((error) => {
         reject(error);
     });
@@ -141,6 +155,7 @@ const updateUser = (user) => {
 
 const updateProfilePic = (user) => {
     return new Promise((resolve, reject) => {
+        connection.connect();
         connection.query("UPDATE user SET ProfilePic =? WHERE Username = ?", [
             user.photo,
             user.username
@@ -151,6 +166,7 @@ const updateProfilePic = (user) => {
             }
             resolve(result);
         });
+        connection.end();
     }).catch((error) => {
         reject(error);
     });

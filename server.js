@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var path = require('path');
-
+var PORT = process.env.PORT || 3000;
 var UserControllers = require('./controllers/userController');
 var BatchController = require('./controllers/batchController');
 

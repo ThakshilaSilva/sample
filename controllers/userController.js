@@ -104,7 +104,7 @@ const getStudents = () => { // query every student from the database
     return new Promise((resolve, reject) => {
         getConnection(function(err, connection) {
             if (err) {
-                con.release();
+                connection.release();
                 console.log(' Error getting mysql_pool connection: ' + err);
                 throw err;
             }
@@ -122,13 +122,13 @@ const getStudents = () => { // query every student from the database
 
 const addNewUser = (user) => {
     return new Promise((resolve, reject) => {
-        getConnection(function(err, con) {
+        getConnection(function(err, connection) {
             if (err) {
-                con.release();
+                connection.release();
                 console.log(' Error getting mysql_pool connection: ' + err);
                 throw err;
             }
-            con.query("INSERT INTO user VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [
+            connection.query("INSERT INTO user VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [
                 user.username,
                 user.fname,
                 user.lname,
@@ -154,7 +154,7 @@ const addNewUser = (user) => {
                 }
                 resolve(res);
             });
-            con.release();
+            connection.release();
         });
     }).catch((error) => {
         reject(error);
@@ -203,7 +203,7 @@ const updateUser = (user) => {
     return new Promise((resolve, reject) => {
         getConnection(function(err, connection) {
             if (err) {
-                con.release();
+                connection.release();
                 console.log(' Error getting mysql_pool connection: ' + err);
                 throw err;
             }
@@ -234,7 +234,7 @@ const updateProfilePic = (user) => {
     return new Promise((resolve, reject) => {
         getConnection(function(err, connection) {
             if (err) {
-                con.release();
+                connection.release();
                 console.log(' Error getting mysql_pool connection: ' + err);
                 throw err;
             }

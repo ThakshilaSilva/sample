@@ -4,7 +4,6 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var path = require('path');
-var PORT = process.env.PORT || 3000;
 var UserControllers = require('./controllers/userController');
 var BatchController = require('./controllers/batchController');
 
@@ -25,7 +24,7 @@ app.use(function(req, res, next) {
 
 app.use(express.static("public"));
 
-app.listen(PORT, (err) => {
+app.listen(process.env.PORT || 3000, (err) => {
     if (err) {
         console.log(err);
     } else {

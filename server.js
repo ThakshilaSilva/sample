@@ -25,7 +25,7 @@ app.use(function(req, res, next) {
 
 app.use(express.static("public"));
 
-app.listen(3000, (err) => {
+app.listen(PORT, (err) => {
     if (err) {
         console.log(err);
     } else {

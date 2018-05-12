@@ -1955,7 +1955,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var uri = 'http://localhost:3000/uploadProfilePic';
+var uri = 'uploadProfilePic';
 var ProfileComponent = (function () {
     function ProfileComponent(user, route, router) {
         var _this = this;

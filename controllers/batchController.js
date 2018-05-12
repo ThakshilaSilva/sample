@@ -66,7 +66,28 @@ const addAcaEvent = (event) => {
     });
 };
 
-
+const getEditableBatchEvent = (user) => {
+    return new Promise((resolve, reject) => {
+        getConnection(function(err, connection) {
+            if (err) {
+                connection.release();
+                console.log(' Error getting mysql_pool connection: ' + err);
+                throw err;
+            }
+            connection.query("SELECT * FROM batchEvent WHERE EventID=?", [item.EventID],
+                (err, res) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    resolve(res);
+                    //console.log(password);
+                });
+            connection.release();
+        })
+    }).catch((error) => {
+        reject(error);
+    });
+};
 
 const getEvents = () => {
     return new Promise((resolve, reject) => {
@@ -136,7 +157,7 @@ const getEditableAcaEvent = (item) => {
     });
 };
 
-const getEditableBatchEvent = (item) => {
+/*const getEditableBatchEvent = (item) => {
     return new Promise((resolve, reject) => {
         getConnection(function(err, connection) {
             if (err) {
@@ -157,7 +178,7 @@ const getEditableBatchEvent = (item) => {
     }).catch((error) => {
         reject(error);
     });
-};
+};*/
 
 const updateAcaEvent = (event) => {
 

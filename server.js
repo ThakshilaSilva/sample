@@ -181,7 +181,7 @@ const upload = multer({ storage: storage }).single('img');*/
 
 var store = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, './uploads');
+        cb(null, path.join(__dirname, "/public/uploads"));
     },
     filename: function(req, file, cb) {
         cb(null, Date.now() + '.' + file.originalname);

@@ -32,7 +32,7 @@ app.listen(process.env.PORT || 3000, (err) => {
     }
 });
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
     // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
     // res.send(__dirname);
@@ -71,6 +71,7 @@ app.post("/updateUser", (req, res) => {
         res.status(400).send(err);
     });
 });
+
 
 app.post("/updateProfilePic", (req, res) => {
     UserControllers.updateProfilePic(req.body).then((result) => {

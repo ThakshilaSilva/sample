@@ -228,6 +228,54 @@ app.get('/people', (req, res) => {
     res.sendFile(path.join(__dirname, "/public/index.html"));
     // res.send(__dirname);
 });
+
+app.get('/timeline', (req, res) => {
+    // console.log(__dirn.ame);
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+    // res.send(__dirname);
+});
+
+app.get('/editProfile', (req, res) => {
+    // console.log(__dirn.ame);
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+    // res.send(__dirname);
+});
+
+app.get('/achievement', (req, res) => {
+    // console.log(__dirn.ame);
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+    // res.send(__dirname);
+});
+
+app.get('/admin', (req, res) => {
+    // console.log(__dirn.ame);
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+    // res.send(__dirname);
+});
+app.get('/addBatchEvents', (req, res) => {
+    // console.log(__dirn.ame);
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+    // res.send(__dirname);
+});
+
+app.get('/editBatchEvents', (req, res) => {
+    // console.log(__dirn.ame);
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+    // res.send(__dirname);
+});
+
+app.get('/addAcademicEvents', (req, res) => {
+    // console.log(__dirn.ame);
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+    // res.send(__dirname);
+});
+
+app.get('/editAcademicEvents', (req, res) => {
+    // console.log(__dirn.ame);
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+    // res.send(__dirname);
+});
+
 /*app.post("/upload_avatar", function(req, res) {
         console.log(req.body.img);
         upload(req, res, function(err) {

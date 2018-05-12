@@ -1183,6 +1183,7 @@ var EditBatchEventsComponent = (function () {
     };
     EditBatchEventsComponent.prototype.getEditableDetails = function (id) {
         var _this = this;
+        console.log("In the get editable details method: " + id);
         this.batch.getSelectedBatchEvent({
             EventID: this.id
         }).subscribe(function (result) {

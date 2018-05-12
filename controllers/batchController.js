@@ -66,7 +66,7 @@ const addAcaEvent = (event) => {
     });
 };
 
-const getEditableBatchEvent = (user) => {
+const getEditableBatchEvent = (item) => {
     return new Promise((resolve, reject) => {
         getConnection(function(err, connection) {
             if (err) {

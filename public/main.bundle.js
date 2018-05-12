@@ -643,7 +643,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var uri = 'http://localhost:3000/upload';
+var uri = 'add_event';
 var BatchEventsComponent = (function () {
     function BatchEventsComponent(router, batch) {
         var _this = this;

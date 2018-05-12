@@ -32,11 +32,7 @@ app.listen(process.env.PORT || 3000, (err) => {
     }
 });
 
-app.get('*', (req, res) => {
-    // console.log(__dirn.ame);
-    res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
-});
+
 
 app.post("/get_user", (req, res) => {
     UserControllers.getUser(req.body).then((result) => {
@@ -212,7 +208,26 @@ app.post('/uploadProfilePic', function(req, res, next) {
     });
 });
 
-
+app.get('/', (req, res) => {
+    // console.log(__dirn.ame);
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+    // res.send(__dirname);
+});
+app.get('/login', (req, res) => {
+    // console.log(__dirn.ame);
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+    // res.send(__dirname);
+});
+app.get('/signup', (req, res) => {
+    // console.log(__dirn.ame);
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+    // res.send(__dirname);
+});
+app.get('/people', (req, res) => {
+    // console.log(__dirn.ame);
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+    // res.send(__dirname);
+});
 /*app.post("/upload_avatar", function(req, res) {
         console.log(req.body.img);
         upload(req, res, function(err) {

@@ -214,11 +214,7 @@ app.get('/', (req, res) => {
     // res.send(__dirname);
 });
 
-app.get('/index', (req, res) => {
-    // console.log(__dirn.ame);
-    res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
-});
+
 
 app.get('/login', (req, res) => {
     // console.log(__dirn.ame);

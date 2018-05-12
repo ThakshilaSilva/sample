@@ -144,7 +144,7 @@ const getEditableAcaEvent = (item) => {
             }
             connection.query("SELECT * FROM upcomingevent WHERE EventID=?", [item.EventID],
                 (err, res) => {
-                    connection.end();
+
                     if (err) {
                         reject(err);
                     }
@@ -196,7 +196,7 @@ const updateAcaEvent = (event) => {
                 event.detail,
                 event.ID
             ], (err, result) => {
-                connection.end();
+
                 if (err) {
                     reject(err);
                     console.log("ERROR " + err);
@@ -231,7 +231,7 @@ const updateBatchEvent = (event) => {
                 event.album3,
                 event.ID
             ], (err, result) => {
-                connection.end();
+
                 if (err) {
                     reject(err);
                     console.log("ERROR " + err);

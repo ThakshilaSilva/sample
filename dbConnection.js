@@ -10,9 +10,9 @@ const mysql = require('mysql');
 
 const connectionPool = mysql.createPool({
     host: 'us-cdbr-iron-east-04.cleardb.net',
-    user: 'be67531c3a1170',
-    password: 'f22ecceb',
-    database: 'heroku_a645f32cc466cb0',
+    user: 'b6d0961eca9b65',
+    password: '544f57c5',
+    database: 'heroku_76c57eef91e7672',
     port: '3306',
     connectionLimit: 10
 });

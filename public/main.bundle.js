@@ -616,7 +616,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/components/batch-events/batch-events.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js\"></script>\n    <script src=\"js/jquery.min.js\"></script>\n    <script src=\"js/skel.min.js\"></script>\n    <script src=\"js/skel-layers.min.js\"></script>\n    <script src=\"js/init.js\"></script>\n\n</head>\n\n<body>\n    <header id=\"header\">\n        <h1><a href=\"/index\">CSE15</a></h1>\n        <nav id=\"nav\">\n            <ul>\n                <li><a href=\"/index\">Home</a></li>\n                <li><a href=\"/people\">People</a></li>\n                <li><a href=\"/timeline\">Timeline</a></li>\n                <li><a href=\"#\">Results</a></li>\n                <li><a href=\"#\">Notes</a></li>\n                <li><a href=\"/login\">Sign In</a></li>\n                <li><a href=\"/signup\">Sign Up</a></li>\n            </ul>\n        </nav>\n    </header>\n\n    <div class=\"form_wrapper\">\n        <div class=\"form_container\">\n            <div class=\"title_container\">\n                <h2>Add Batch Events</h2>\n            </div>\n            <div class=\"row clearfix\">\n                <div class=\"\">\n                    <form id='userForm'>\n                        <div class=\"input_field\">\n                            <span>\n                              <i aria-hidden=\"true\" class=\"fa fa-lock\"></i>\n                            </span>\n                            <input type=\"text\" name=\"eventName\" id=\"eventName\" placeholder=\"Event name\" required />\n                        </div>\n                        <div class=\"input_field\">\n                            <span>\n\t\t\t\t\t\t\t                <i aria-hidden=\"true\" class=\"fa fa-envelope\"></i>\n\t\t\t\t\t\t                </span>\n                            <input type=\"date\" name=\"date\" id=\"date\" placeholder=\"Event Date\" required />\n                        </div>\n                        <div class=\"input_field\">\n                            <span>\n\t\t\t\t\t\t\t                <i aria-hidden=\"true\" class=\"fa fa-user\"></i>\n\t\t\t\t\t\t                </span>\n                            <input type=\"text\" name=\"description\" id=\"description\" placeholder=\"Event description\" required />\n                        </div>\n                        <label>Upload 4 most important photoes of your event</label>\n                        <div id=\"fileSelector\">\n                            <input type=\"file\" name=\"fileUplaod\" id=\"fileUpload\" multiple ng2FileSelect [uploader]=\"uploader\">\n                        </div>\n                        <div>\n                            <div class=\"row uploadList\" *ngFor=\"let item of uploader.queue\">\n                                <div class=\"col-sm-4\">{{item.file.name}}</div>\n                                <div class=\"col-sm-4\">\n                                    <button type=\"button\" class=\"btn btn-dark\" (click)=\"item.upload()\">Upload</button>\n                                    <button type=\"button\" class=\"btn btn-danger\" (click)=\"item.remove()\">Cancel</button>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"row\" *ngIf=\"uploader?.queue?.length > 0\">\n                            <button type=\"button\" class=\"btn btn-primary\" (click)=\"uploader.uploadAll()\">Upload All</button>\n                        </div>\n\n\n                        <div class=\"input_field\">\n                            <span>\n\t\t\t\t\t\t\t                <i aria-hidden=\"true\" class=\"fa fa-envelope\"></i>\n\t\t\t\t\t\t                </span>\n                            <input type=\"url\" name=\"album1\" id='album1' placeholder=\"Photo album1\" required />\n                        </div>\n                        <div class=\"input_field\">\n                            <span>\n\t\t\t\t\t\t\t                <i aria-hidden=\"true\" class=\"fa fa-envelope\"></i>\n\t\t\t\t\t\t                </span>\n                            <input type=\"url\" name=\"album2\" id='album2' placeholder=\"Photo album2\" />\n                        </div>\n                        <div class=\"input_field\">\n                            <span>\n\t\t\t\t\t\t\t                <i aria-hidden=\"true\" class=\"fa fa-envelope\"></i>\n\t\t\t\t\t\t                </span>\n                            <input type=\"url\" name=\"album3\" id='album3' placeholder=\"Photo album3\" />\n                        </div>\n\n                        <button type=\"submit\" class=\"signupbtn\" (click)=\"addEvent()\">Add the Event</button>\n\n                    </form>\n                </div>\n            </div>\n        </div>\n    </div>\n\n</body>\n\n</html>"
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js\"></script>\n    <script src=\"js/jquery.min.js\"></script>\n    <script src=\"js/skel.min.js\"></script>\n    <script src=\"js/skel-layers.min.js\"></script>\n    <script src=\"js/init.js\"></script>\n\n</head>\n\n<body>\n    <header id=\"header\">\n        <h1><a href=\"/index\">CSE15</a></h1>\n        <nav id=\"nav\">\n            <ul>\n                <li><a href=\"/index\">Home</a></li>\n                <li><a href=\"/people\">People</a></li>\n                <li><a href=\"/timeline\">Timeline</a></li>\n                <li><a href=\"#\">Results</a></li>\n                <li><a href=\"#\">Notes</a></li>\n                <li><a href=\"/login\">Sign In</a></li>\n                <li><a href=\"/signup\">Sign Up</a></li>\n            </ul>\n        </nav>\n    </header>\n\n    <div class=\"form_wrapper\">\n        <div class=\"form_container\">\n            <div class=\"title_container\">\n                <h2>Add Batch Events</h2>\n            </div>\n            <div class=\"row clearfix\">\n                <div class=\"\">\n                    <form id='userForm'>\n                        <div class=\"input_field\">\n                            <span>\n                              <i aria-hidden=\"true\" class=\"fa fa-lock\"></i>\n                            </span>\n                            <input type=\"text\" name=\"eventName\" id=\"eventName\" placeholder=\"Event name\" required />\n                        </div>\n                        <div class=\"input_field\">\n                            <span>\n\t\t\t\t\t\t\t                <i aria-hidden=\"true\" class=\"fa fa-envelope\"></i>\n\t\t\t\t\t\t                </span>\n                            <input type=\"date\" name=\"date\" id=\"date\" placeholder=\"Event Date\" required />\n                        </div>\n                        <div class=\"input_field\">\n                            <span>\n\t\t\t\t\t\t\t                <i aria-hidden=\"true\" class=\"fa fa-user\"></i>\n\t\t\t\t\t\t                </span>\n                            <input type=\"text\" name=\"description\" id=\"description\" placeholder=\"Event description\" required />\n                        </div>\n                        <label>Upload 5 most important photoes of your event</label>\n\n                        <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" accept=\"image/*;capture=camera\">\n\n                        <button (click)=\"upload()\">Upload</button>\n\n                        <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" accept=\"image/*;capture=camera\">\n\n                        <button (click)=\"upload()\">Upload</button>\n\n                        <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" accept=\"image/*;capture=camera\">\n\n                        <button (click)=\"upload()\">Upload</button>\n\n                        <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" accept=\"image/*;capture=camera\">\n\n                        <button (click)=\"upload()\">Upload</button>\n\n                        <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" accept=\"image/*;capture=camera\">\n\n                        <button (click)=\"upload()\">Upload</button>\n\n                        <!--<div id=\"fileSelector\">\n                            <input type=\"file\" multiple ng2FileSelect [uploader]=\"uploader\" accept=\"image/*;capture=camera\">\n                        </div>\n                        <div>\n                            <div class=\"row uploadList\" *ngFor=\"let item of uploader.queue\">\n                                <div class=\"col-sm-4\">{{item.file.name}}</div>\n                                <div class=\"col-sm-4\">\n                                <button type=\"button\" class=\"btn btn-dark\" (click)=\"item.upload()\">Upload</button>\n                                 <button type=\"button\" class=\"btn btn-danger\" (click)=\"item.remove()\">Cancel</button>\n                                </div> \n                            </div>\n                        </div>-->\n                        <!--<div class=\"row\" *ngIf=\"uploader?.queue?.length > 0\">\n                            <button type=\"button\" class=\"btn btn-primary\" (click)=\"uploader.uploadAll()\">Upload All</button>\n                        </div>-->\n\n\n                        <div class=\"input_field\">\n                            <span>\n\t\t\t\t\t\t\t                <i aria-hidden=\"true\" class=\"fa fa-envelope\"></i>\n\t\t\t\t\t\t                </span>\n                            <input type=\"url\" name=\"album1\" id='album1' placeholder=\"Photo album1\" required />\n                        </div>\n                        <div class=\"input_field\">\n                            <span>\n\t\t\t\t\t\t\t                <i aria-hidden=\"true\" class=\"fa fa-envelope\"></i>\n\t\t\t\t\t\t                </span>\n                            <input type=\"url\" name=\"album2\" id='album2' placeholder=\"Photo album2\" />\n                        </div>\n                        <div class=\"input_field\">\n                            <span>\n\t\t\t\t\t\t\t                <i aria-hidden=\"true\" class=\"fa fa-envelope\"></i>\n\t\t\t\t\t\t                </span>\n                            <input type=\"url\" name=\"album3\" id='album3' placeholder=\"Photo album3\" />\n                        </div>\n\n                        <button type=\"submit\" class=\"signupbtn\" (click)=\"addEvent()\">Add the Event</button>\n\n                    </form>\n                </div>\n            </div>\n        </div>\n    </div>\n\n</body>\n\n</html>"
 
 /***/ }),
 
@@ -628,8 +628,9 @@ module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta chars
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_batch_service_service__ = __webpack_require__("./src/app/services/batch-service.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_file_upload__ = __webpack_require__("./node_modules/ng2-file-upload/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_file_upload__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_cloudinary__ = __webpack_require__("./node_modules/ng2-cloudinary/dist/esm/src/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_cloudinary_core__ = __webpack_require__("./node_modules/cloudinary-core/cloudinary-core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_cloudinary_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_cloudinary_core__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -643,30 +644,49 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var uri = 'upload';
 var BatchEventsComponent = (function () {
     function BatchEventsComponent(router, batch) {
         var _this = this;
         this.router = router;
         this.batch = batch;
-        this.uploader = new __WEBPACK_IMPORTED_MODULE_3_ng2_file_upload__["FileUploader"]({ url: uri });
+        //uploader:FileUploader = new FileUploader({url:uri});
         this.attachmentList = [];
+        this.cl = new __WEBPACK_IMPORTED_MODULE_4_cloudinary_core__["Cloudinary"]({ cloud_name: "dkb32rri1", secure: true });
+        this.uploader = new __WEBPACK_IMPORTED_MODULE_3_ng2_cloudinary__["b" /* CloudinaryUploader */](new __WEBPACK_IMPORTED_MODULE_3_ng2_cloudinary__["a" /* CloudinaryOptions */]({ cloudName: 'dkb32rri1', uploadPreset: 'lbpecf1q' }));
         this.batchService = batch;
-        this.uploader.onCompleteItem = function (item, response, status, headers) {
-            _this.attachmentList.push(JSON.parse(response));
+        /*this.uploader.onCompleteItem = (item:any, response:any , status:any, headers:any) => {
+          this.attachmentList.push(JSON.parse(response));
+    
+      }*/
+        this.uploader.onSuccessItem = function (item, response, status, headers) {
+            var res = JSON.parse(response);
+            _this.imageId = res.public_id;
+            console.log(_this.imageId + " image id");
+            var fake = _this.cl.imageTag(_this.imageId).toHtml();
+            var p = fake.split("=")[1];
+            var photo = p.split('"')[1];
+            console.log("photo is -> " + photo);
+            _this.attachmentList.push(photo);
+            return { item: item, response: response, status: status, headers: headers };
         };
     }
     BatchEventsComponent.prototype.ngOnInit = function () {
+    };
+    BatchEventsComponent.prototype.upload = function () {
+        this.uploader.uploadAll();
+        alert("Successfully uploaded the profile picture to the cloudinary");
     };
     BatchEventsComponent.prototype.addEvent = function () {
         var eventName = document.forms['userForm']['eventName'].value;
         var date = document.forms['userForm']['date'].value;
         var description = document.forms['userForm']['description'].value;
-        var photo1 = this.attachmentList[0].uploadname;
-        var photo2 = this.attachmentList[1].uploadname;
-        var photo3 = this.attachmentList[2].uploadname;
-        var photo4 = this.attachmentList[3].uploadname;
-        var photo5 = this.attachmentList[4].uploadname;
+        var photo1 = this.attachmentList[0];
+        var photo2 = this.attachmentList[1];
+        var photo3 = this.attachmentList[2];
+        var photo4 = this.attachmentList[3];
+        var photo5 = this.attachmentList[4];
         var album1 = document.forms['userForm']['album1'].value;
         var album02 = document.forms['userForm']['album2'].value;
         var album03 = document.forms['userForm']['album3'].value;
@@ -857,7 +877,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/components/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-4\">\r\n\r\n\r\n    <input type=\"file\" name=\"img\" (change)=\"fileChangeEvent($event)\" />\r\n    <!-- <button type=\"button\" (click)=\"upload()\">Upload</button> -->\r\n</div>"
+module.exports = ""
 
 /***/ }),
 
@@ -888,9 +908,6 @@ var DashboardComponent = (function () {
         this.batchService = batch;
     }
     DashboardComponent.prototype.ngOnInit = function () {
-    };
-    DashboardComponent.prototype.fileChangeEvent = function (event) {
-        this.batch.uploadAvatar(event);
     };
     return DashboardComponent;
 }());
@@ -1796,7 +1813,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/components/people/people.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<!--\n\tTransit by TEMPLATED\n\ttemplated.co @templatedco\n\tReleased for free under the Creative Commons Attribution 3.0 license (templated.co/license)\n-->\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <title></title>\n    <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />\n    <meta name=\"description\" content=\"\" />\n    <meta name=\"keywords\" content=\"\" />\n    <!--[if lte IE 8]><script src=\"js/html5shiv.js\"></script><![endif]-->\n    <script src=\"js/jquery.min.js\"></script>\n    <script src=\"js/skel.min.js\"></script>\n    <script src=\"js/skel-layers.min.js\"></script>\n    <script src=\"js/init.js\"></script>\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js\"></script>\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n\n</head>\n\n<body>\n\n    <!-- Header -->\n    <header id=\"header\">\n        <h1><a href=\"/index\">CSE15</a></h1>\n        <nav id=\"nav\">\n            <ul>\n                <li><a routerLink=\"/index\">Home</a></li>\n                <li><a routerLink=\"/people\">People</a></li>\n                <li><a routerLink=\"/timeline\">Timeline</a></li>\n                <li><a routerLink=\"#\">Results</a></li>\n                <li><a routerLink=\"#\">Notes</a></li>\n                <li><a routerLink=\"/login\">Sign In</a></li>\n                <li><a routerLink=\"/signup\">Sign Up</a></li>\n            </ul>\n        </nav>\n    </header>\n\n\n\n    <section id=\"one\" class=\"wrapper style1 special\">\n        <header class=\"major\">\n            <h2>CSE15 Family</h2>\n        </header>\n        <div class=\"container\">\n            <div class=\"row 150%\">\n                <ul *ngFor=\"let student of students\" class=\"btn-default\">\n                    <div class=\"4u 12u$(medium)\">\n\n                        <section class=\"box\">\n                            <div class=\"dbimg\">\n                                <img id=\"img1\" src=\"uploads/{{student.ProfilePic}}\" height=\"150px\" width=\"150px\">\n                            </div>\n                            <p style=\"margin:0;\">{{student.FirstName + \" \" +student.LastName}} </p>\n                            <p style=\"margin:0;\">{{student.Stream}}</p>\n                            <i class=\"fa fa-envelope\"><a  href=\"mailto:{{student.Email}}\" >{{student.Email}}</a></i><br>\n\n                            <a href=\"{{student.LinkedIn}}\"><i class=\"fa fa-linkedin-square\" style=\"font-size:30px;color:#0077B5\"></i></a>\n                            <a href=\"{{student.Facebook}}\"><i class=\"fa fa-facebook-square\" style=\"font-size:30px;color:#3B5998 \"></i></a>\n                        </section>\n                    </div>\n                </ul>\n\n            </div>\n        </div>\n    </section>\n\n\n    <!-- Footer -->\n    <footer id=\"footer\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"8u 12u$(medium)\">\n                    <ul class=\"copyright\">\n                        <li>&copy; Untitled. All rights reserved.</li>\n                        <li>Design: <a href=\"http://templated.co\">TEMPLATED</a></li>\n                        <li>Images: <a href=\"http://unsplash.com\">Unsplash</a></li>\n                    </ul>\n                </div>\n                <div class=\"4u$ 12u$(medium)\">\n                    <ul class=\"icons\">\n                        <li>\n                            <a class=\"icon rounded fa-facebook\" href=\"https://www.facebook.com/groups/1842954892657433/\"><span class=\"label\">Facebook</span></a>\n                        </li>\n                        <li>\n                            <a class=\"icon rounded fa-youtube\" href=\"https://www.youtube.com/channel/UCT77JieVc9KwyHdpa5Qn_8A\"><span class=\"label\">Twitter</span></a>\n                        </li>\n                        <li>\n                            <a class=\"icon rounded fa-google-plus\"><span class=\"label\">Google+</span></a>\n                        </li>\n                        <li>\n                            <a class=\"icon rounded fa-linkedin\"><span class=\"label\">LinkedIn</span></a>\n                        </li>\n                    </ul>\n                </div>\n            </div>\n        </div>\n    </footer>\n\n</body>\n\n</html>"
+module.exports = "<!DOCTYPE html>\n<!--\n\tTransit by TEMPLATED\n\ttemplated.co @templatedco\n\tReleased for free under the Creative Commons Attribution 3.0 license (templated.co/license)\n-->\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <title></title>\n    <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />\n    <meta name=\"description\" content=\"\" />\n    <meta name=\"keywords\" content=\"\" />\n    <!--[if lte IE 8]><script src=\"js/html5shiv.js\"></script><![endif]-->\n    <script src=\"js/jquery.min.js\"></script>\n    <script src=\"js/skel.min.js\"></script>\n    <script src=\"js/skel-layers.min.js\"></script>\n    <script src=\"js/init.js\"></script>\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js\"></script>\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n\n</head>\n\n<body>\n\n    <!-- Header -->\n    <header id=\"header\">\n        <h1><a href=\"/index\">CSE15</a></h1>\n        <nav id=\"nav\">\n            <ul>\n                <li><a routerLink=\"/index\">Home</a></li>\n                <li><a routerLink=\"/people\">People</a></li>\n                <li><a routerLink=\"/timeline\">Timeline</a></li>\n                <li><a routerLink=\"#\">Results</a></li>\n                <li><a routerLink=\"#\">Notes</a></li>\n                <li><a routerLink=\"/login\">Sign In</a></li>\n                <li><a routerLink=\"/signup\">Sign Up</a></li>\n            </ul>\n        </nav>\n    </header>\n\n\n\n    <section id=\"one\" class=\"wrapper style1 special\">\n        <header class=\"major\">\n            <h2>CSE15 Family</h2>\n        </header>\n        <div class=\"container\">\n            <div class=\"row 150%\">\n                <ul *ngFor=\"let student of students\" class=\"btn-default\">\n                    <div class=\"4u 12u$(medium)\">\n\n                        <section class=\"box\">\n                            <div class=\"dbimg\">\n                                <img id=\"img1\" src=\"{{student.ProfilePic}}\" height=\"150px\" width=\"150px\">\n                            </div>\n                            <p style=\"margin:0;\">{{student.FirstName + \" \" +student.LastName}} </p>\n                            <p style=\"margin:0;\">{{student.Stream}}</p>\n                            <i class=\"fa fa-envelope\"><a  href=\"mailto:{{student.Email}}\" >{{student.Email}}</a></i><br>\n\n                            <a href=\"{{student.LinkedIn}}\"><i class=\"fa fa-linkedin-square\" style=\"font-size:30px;color:#0077B5\"></i></a>\n                            <a href=\"{{student.Facebook}}\"><i class=\"fa fa-facebook-square\" style=\"font-size:30px;color:#3B5998 \"></i></a>\n                        </section>\n                    </div>\n                </ul>\n\n            </div>\n        </div>\n    </section>\n\n\n    <!-- Footer -->\n    <footer id=\"footer\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"8u 12u$(medium)\">\n                    <ul class=\"copyright\">\n                        <li>&copy; Untitled. All rights reserved.</li>\n                        <li>Design: <a href=\"http://templated.co\">TEMPLATED</a></li>\n                        <li>Images: <a href=\"http://unsplash.com\">Unsplash</a></li>\n                    </ul>\n                </div>\n                <div class=\"4u$ 12u$(medium)\">\n                    <ul class=\"icons\">\n                        <li>\n                            <a class=\"icon rounded fa-facebook\" href=\"https://www.facebook.com/groups/1842954892657433/\"><span class=\"label\">Facebook</span></a>\n                        </li>\n                        <li>\n                            <a class=\"icon rounded fa-youtube\" href=\"https://www.youtube.com/channel/UCT77JieVc9KwyHdpa5Qn_8A\"><span class=\"label\">Twitter</span></a>\n                        </li>\n                        <li>\n                            <a class=\"icon rounded fa-google-plus\"><span class=\"label\">Google+</span></a>\n                        </li>\n                        <li>\n                            <a class=\"icon rounded fa-linkedin\"><span class=\"label\">LinkedIn</span></a>\n                        </li>\n                    </ul>\n                </div>\n            </div>\n        </div>\n    </footer>\n\n</body>\n\n</html>"
 
 /***/ }),
 
@@ -1929,7 +1946,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/components/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Responsive Registration Form</title>\n\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js\"></script>\n\n</head>\n\n<body>\n\n    <div class=\"form_wrapper\">\n        <div class=\"form_container\">\n            <div class=\"title_container\">\n                <h2>Edit Profile</h2>\n            </div>\n            <div class=\"row clearfix\">\n                <div class=\"\">\n\n\n                    <div class=\"dbimg\">\n\n                        <img id=\"img1\" src=\"uploads/{{users.ProfilePic}}\" height=\"150px\" width=\"150px\">\n\n                    </div>\n\n                    <span style=\"margin-top: 100px;\">\n                            <p>\n                                \n                                Edit your Profile Picture</p>\n                    </span>\n\n                    <div id=\"fileSelector\">\n                        <input type=\"file\" name=\"fileUplaod\" id=\"fileUpload\" multiple ng2FileSelect [uploader]=\"uploader\">\n                    </div>\n                    <div>\n                        <div class=\"row uploadList\" *ngFor=\"let item of uploader.queue\">\n\n                            <div class=\"col-sm-4\">{{item.file.name}}</div>\n                            <div class=\"col-sm-4\">\n                                <button type=\"button\" class=\"btn btn-dark\" (click)=\"item.upload()\">Upload</button>\n                                <button type=\"button\" class=\"btn btn-danger\" (click)=\"item.remove()\">Cancel</button>\n                            </div>\n                        </div>\n                    </div>\n\n                    <button class=\"btn btn-success\" style=\"margin: 10px;\" (click)=\"upload()\"> Update Profile Picture </button>\n                    <form id='userForm'>\n                        <div class=\"input_field\">\n                            <label for=\"username\">Username</label>\n                            <input type=\"text\" name=\"username\" id=\"username\" value={{users.Username}} disabled />\n                        </div>\n                        <div class=\"row clearfix\">\n                            <div class=\"col_half\">\n                                <div class=\"input_field\">\n                                    <label for=\"firstname\">First name</label>\n                                    <input type=\"text\" name=\"firstname\" id=\"firstname\" value={{users.FirstName}}/>\n                                </div>\n                            </div>\n                            <div class=\"col_half\">\n                                <div class=\"input_field\">\n                                    <label for=\"lastname\">Last name</label>\n                                    <input type=\"text\" name=\"lastname\" id=\"lastname\" value={{users.LastName}}/>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"input_field\">\n                            <label for=\"nic\">NIC</label>\n                            <input type=\"text\" name=\"nic\" id=\"nic\" value={{users.NIC}} disabled />\n                        </div>\n                        <div class=\"input_field\">\n                            <label for=\"address\">Address</label>\n                            <input type=\"text\" name=\"address\" id=\"address\" value={{users.Address}} />\n                        </div>\n                        <div class=\"input_field\">\n                            <label for=\"tp\">Contact Number</label>\n                            <input type=\"text\" name=\"tp\" id=\"tp\" value={{users.ContactNo}} />\n                        </div>\n                        <div class=\"input_field\">\n                            <label for=\"fb\">Facebook Account</label>\n                            <input type=\"url\" name=\"fb\" id=\"fb\" value={{users.Facebook}} />\n                        </div>\n                        <div class=\"input_field\">\n                            <label for=\"linkedIn\">LinkedIn Account</label>\n                            <input type=\"url\" name=\"linkedIn\" id=\"linkedIn\" value={{users.LinkedIn}} />\n                        </div>\n\n                        <button class=\"btn btn-success\" style=\"margin: 10px;\" (click)=\"update()\"> Update </button>\n                        <button class=\"btn btn-success\" style=\"margin: 10px;\" (click)=\"cancel()\">Cancel</button>\n\n                    </form>\n                </div>\n            </div>\n        </div>\n    </div>\n\n</body>\n\n</html>"
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Responsive Registration Form</title>\n\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js\"></script>\n\n</head>\n\n<body>\n\n    <div class=\"form_wrapper\">\n        <div class=\"form_container\">\n            <div class=\"title_container\">\n                <h2>Edit Profile</h2>\n            </div>\n            <div class=\"row clearfix\">\n                <div class=\"\">\n\n\n                    <div class=\"dbimg\">\n\n                        <img id=\"img1\" src=\"{{users.ProfilePic}}\" height=\"150px\" width=\"150px\">\n\n\n                    </div>\n\n                    <span style=\"margin-top: 100px;\">\n                            <p>\n                                \n                                Edit your Profile Picture</p>\n                    </span>\n\n                    <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" accept=\"image/*;capture=camera\">\n\n                    <button (click)=\"upload()\">Upload</button>\n\n                    <button class=\"btn btn-success\" style=\"margin: 10px;\" (click)=\"uploadP()\"> Update Profile Picture </button>\n                    <form id='userForm'>\n                        <div class=\"input_field\">\n                            <label for=\"username\">Username</label>\n                            <input type=\"text\" name=\"username\" id=\"username\" value={{users.Username}} disabled />\n                        </div>\n                        <div class=\"row clearfix\">\n                            <div class=\"col_half\">\n                                <div class=\"input_field\">\n                                    <label for=\"firstname\">First name</label>\n                                    <input type=\"text\" name=\"firstname\" id=\"firstname\" value={{users.FirstName}}/>\n                                </div>\n                            </div>\n                            <div class=\"col_half\">\n                                <div class=\"input_field\">\n                                    <label for=\"lastname\">Last name</label>\n                                    <input type=\"text\" name=\"lastname\" id=\"lastname\" value={{users.LastName}}/>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"input_field\">\n                            <label for=\"nic\">NIC</label>\n                            <input type=\"text\" name=\"nic\" id=\"nic\" value={{users.NIC}} disabled />\n                        </div>\n                        <div class=\"input_field\">\n                            <label for=\"address\">Address</label>\n                            <input type=\"text\" name=\"address\" id=\"address\" value={{users.Address}} />\n                        </div>\n                        <div class=\"input_field\">\n                            <label for=\"tp\">Contact Number</label>\n                            <input type=\"text\" name=\"tp\" id=\"tp\" value={{users.ContactNo}} />\n                        </div>\n                        <div class=\"input_field\">\n                            <label for=\"fb\">Facebook Account</label>\n                            <input type=\"url\" name=\"fb\" id=\"fb\" value={{users.Facebook}} />\n                        </div>\n                        <div class=\"input_field\">\n                            <label for=\"linkedIn\">LinkedIn Account</label>\n                            <input type=\"url\" name=\"linkedIn\" id=\"linkedIn\" value={{users.LinkedIn}} />\n                        </div>\n\n                        <button class=\"btn btn-success\" style=\"margin: 10px;\" (click)=\"update()\"> Update </button>\n                        <button class=\"btn btn-success\" style=\"margin: 10px;\" (click)=\"cancel()\">Cancel</button>\n\n                    </form>\n                </div>\n            </div>\n        </div>\n    </div>\n\n</body>\n\n</html>"
 
 /***/ }),
 
@@ -1941,8 +1958,9 @@ module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta chars
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("./src/app/services/user.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_file_upload__ = __webpack_require__("./node_modules/ng2-file-upload/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_file_upload__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_cloudinary__ = __webpack_require__("./node_modules/ng2-cloudinary/dist/esm/src/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_cloudinary_core__ = __webpack_require__("./node_modules/cloudinary-core/cloudinary-core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_cloudinary_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_cloudinary_core__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1956,7 +1974,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var uri = 'uploadProfilePic';
+
 var ProfileComponent = (function () {
     function ProfileComponent(user, route, router) {
         var _this = this;
@@ -1964,13 +1982,20 @@ var ProfileComponent = (function () {
         this.route = route;
         this.router = router;
         this.users = {};
-        this.uploader = new __WEBPACK_IMPORTED_MODULE_3_ng2_file_upload__["FileUploader"]({ url: uri });
+        this.cl = new __WEBPACK_IMPORTED_MODULE_4_cloudinary_core__["Cloudinary"]({ cloud_name: "dkb32rri1", secure: true });
+        this.uploader = new __WEBPACK_IMPORTED_MODULE_3_ng2_cloudinary__["b" /* CloudinaryUploader */](new __WEBPACK_IMPORTED_MODULE_3_ng2_cloudinary__["a" /* CloudinaryOptions */]({ cloudName: 'dkb32rri1', uploadPreset: 'lbpecf1q' }));
         this.attachmentList = [];
-        this.userService = user;
-        this.uploader.onCompleteItem = function (item, response, status, headers) {
-            _this.attachmentList.push(JSON.parse(response));
+        this.uploader.onSuccessItem = function (item, response, status, headers) {
+            var res = JSON.parse(response);
+            _this.imageId = res.public_id;
+            console.log(_this.imageId + " image id");
+            return { item: item, response: response, status: status, headers: headers };
         };
     }
+    ProfileComponent.prototype.upload = function () {
+        this.uploader.uploadAll();
+        alert("Successfully uploaded the profile picture to the cloudinary");
+    };
     ProfileComponent.prototype.ngOnInit = function () {
         this.getUser();
     };
@@ -1982,6 +2007,7 @@ var ProfileComponent = (function () {
         }).subscribe(function (result) {
             console.log(result[0]);
             _this.users = result[0];
+            console.log("starting => " + result[0].ProfilePic);
         }, function (error) {
             console.log(error);
         });
@@ -1991,7 +2017,6 @@ var ProfileComponent = (function () {
     };
     ProfileComponent.prototype.update = function () {
         var username = sessionStorage.getItem('id');
-        //const firstname = document.forms['userForm']['firstName'].value;
         console.log(username);
         var firstname = document.forms['userForm']['firstname'].value;
         var lastname = document.forms['userForm']['lastname'].value;
@@ -2016,8 +2041,10 @@ var ProfileComponent = (function () {
             console.log(error);
         });
     };
-    ProfileComponent.prototype.upload = function () {
-        var photo = this.attachmentList[0].uploadname;
+    ProfileComponent.prototype.uploadP = function () {
+        var fake = this.cl.imageTag(this.imageId).toHtml();
+        var p = fake.split("=")[1];
+        var photo = p.split('"')[1];
         var username = sessionStorage.getItem('id');
         this.user.updateProfPic({
             photo: photo,
@@ -2026,12 +2053,14 @@ var ProfileComponent = (function () {
             console.log("hello");
             console.log("Result :" + result[0]);
             alert("Successfully updated your profile picture");
+            //console.log(result[0].ProfilePic);
             location.reload();
         }, function (error) {
             console.log("hi");
             console.log(error);
         });
     };
+    ;
     ProfileComponent.prototype.validateLength = function (a, b) {
         if (a.length != b) {
             return false;
@@ -2040,6 +2069,7 @@ var ProfileComponent = (function () {
             return true;
         }
     };
+    ;
     ProfileComponent.prototype.ValidateURL = function (str) {
         var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
         if (!regex.test(str)) {
@@ -2049,6 +2079,7 @@ var ProfileComponent = (function () {
             return true;
         }
     };
+    ;
     ProfileComponent.prototype.validateFb = function (fb) {
         if (this.ValidateURL(fb)) {
             return true;
@@ -2059,6 +2090,7 @@ var ProfileComponent = (function () {
             return false;
         }
     };
+    ;
     ProfileComponent.prototype.validateLinkedIn = function (linkedIn) {
         if (this.ValidateURL(linkedIn)) {
             return true;
@@ -2069,6 +2101,7 @@ var ProfileComponent = (function () {
             return false;
         }
     };
+    ;
     ProfileComponent.prototype.validateTp = function (tp, regexNum) {
         if (this.validateLength(tp, 10)) {
             if (tp.match(regexNum)) {
@@ -2086,6 +2119,7 @@ var ProfileComponent = (function () {
             return false;
         }
     };
+    ;
     ProfileComponent.prototype.validateLname = function (lname, regexLtr) {
         if ((lname.match(regexLtr) && (lname.length > 3)) || /\s/g.test(lname)) {
             return true;
@@ -2095,6 +2129,7 @@ var ProfileComponent = (function () {
             return false;
         }
     };
+    ;
     ProfileComponent.prototype.validateFname = function (fname, regexLtr) {
         if ((fname.match(regexLtr) && (fname.length > 3)) || /\s/g.test(fname)) {
             return true;
@@ -2105,6 +2140,7 @@ var ProfileComponent = (function () {
             return false;
         }
     };
+    ;
     ProfileComponent.prototype.validateAddress = function (address) {
         if (address.length > 0) {
             return true;
@@ -2114,6 +2150,7 @@ var ProfileComponent = (function () {
             return false;
         }
     };
+    ;
     ProfileComponent.prototype.validate = function () {
         var firstname = document.forms['userForm']['firstname'].value;
         var lastname = document.forms['userForm']['lastname'].value;
@@ -2136,13 +2173,14 @@ var ProfileComponent = (function () {
             return false;
         }
     };
+    ;
     return ProfileComponent;
 }());
 ProfileComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-profile',
         template: __webpack_require__("./src/app/components/profile/profile.component.html"),
-        styles: [__webpack_require__("./src/app/components/profile/profile.component.css")]
+        styles: [__webpack_require__("./src/app/components/profile/profile.component.css")],
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _c || Object])
 ], ProfileComponent);
@@ -2518,10 +2556,10 @@ var SignupComponent = (function () {
         }
         //console.log("User Role is :"+this.userRole);
         if (gender == 'Female') {
-            this.profilePic = 'girl.png';
+            this.profilePic = 'https://res.cloudinary.com/dkb32rri1/image/upload/girl_dd7xyk';
         }
         else {
-            this.profilePic = 'boy.png';
+            this.profilePic = 'https://res.cloudinary.com/dkb32rri1/image/upload/boy_qhb55s';
         }
         if (this.validate()) {
             if (password === passwordC) {
@@ -2954,7 +2992,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/components/timeline/timeline.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<!--\n\tTransit by TEMPLATED\n\ttemplated.co @templatedco\n\tReleased for free under the Creative Commons Attribution 3.0 license (templated.co/license)\n-->\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <title></title>\n    <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />\n    <meta name=\"description\" content=\"\" />\n    <meta name=\"keywords\" content=\"\" />\n    <!--[if lte IE 8]><script src=\"js/html5shiv.js\"></script><![endif]-->\n    <script src=\"js/jquery.min.js\"></script>\n    <script src=\"js/skel.min.js\"></script>\n    <script src=\"js/skel-layers.min.js\"></script>\n    <script src=\"js/init.js\"></script>\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/label.css\">\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/label.min.css\">\n\n\n</head>\n\n<body>\n\n    <!-- Header -->\n    <header id=\"header\">\n        <h1><a href=\"/index\">CSE15</a></h1>\n        <nav id=\"nav\">\n            <ul>\n                <li><a routerLink=\"/\">Home</a></li>\n                <li><a routerLink=\"/people\">People</a></li>\n                <li><a routerLink=\"/timeline\">Timeline</a></li>\n                <li><a routerLink=\"#\">Results</a></li>\n                <li><a routerLink=\"#\">Notes</a></li>\n                <li><a routerLink=\"/login\">Sign In</a></li>\n                <li><a routerLink=\"/signup\">Sign Up</a></li>\n            </ul>\n        </nav>\n    </header>\n\n    <!-- Main -->\n\n    <section id=\"one\" class=\"wrapper style1 special\">\n        <header class=\"major\">\n            <h2>Journey of CSE15</h2>\n        </header>\n        <div class=\"container\">\n\n            <div class=\"4u 12u$(medium)\">\n\n                <ul *ngFor=\"let event of events\" class=\"btn-default\">\n                    <label class=\"ui teal ribbon label\" style=\"display: inherit; line-height: 2; max-width: 25em; font-size: 1em;\">{{event.EventDate.split(\"T\")[0]}}</label>\n                    <section class=\"box\">\n                        <h3 style=\"color: cornflowerblue;\">{{event.EventName}}</h3>\n                        <!--<p>{{event.EventDate}}</p>-->\n                        <p style=\"text-align: justify\">{{event.EventDescription}}</p>\n                        <p style=\"text-align: left; padding-left: 10%\"><a href=\"{{event.photoAlbum1}}\">Photo Album1</a></p>\n                        <p style=\"text-align: left; padding-left: 10%\"><a href=\"{{event.photoAlbum2}}\">Photo Album2</a></p>\n                        <p style=\"text-align: left; padding-left: 10%\"><a href=\"{{event.photoAlbum3}}\">Photo Album3</a></p>\n\n                        <div class=\"dbimg\">\n                            <img id=\"img1\" src=\"uploads/{{event.photo1}}\" height=\"200px\">\n                            <img id=\"img1\" src=\"uploads/{{event.photo2}}\" height=\"200px\">\n                            <img id=\"img1\" src=\"uploads/{{event.photo3}}\" height=\"200px\">\n                            <img id=\"img1\" src=\"uploads/{{event.photo4}}\" height=\"200px\">\n                            <img id=\"img1\" src=\"uploads/{{event.photo5}}\" height=\"200px\">\n                        </div>\n                    </section>\n                </ul>\n\n\n            </div>\n        </div>\n    </section>\n\n\n    <!-- Footer -->\n    <footer id=\"footer\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"8u 12u$(medium)\">\n                    <ul class=\"copyright\">\n                        <li>&copy; Untitled. All rights reserved.</li>\n                        <li>Design: <a href=\"http://templated.co\">TEMPLATED</a></li>\n                        <li>Images: <a href=\"http://unsplash.com\">Unsplash</a></li>\n                    </ul>\n                </div>\n                <div class=\"4u$ 12u$(medium)\">\n                    <ul class=\"icons\">\n                        <li>\n                            <a class=\"icon rounded fa-facebook\"><span class=\"label\">Facebook</span></a>\n                        </li>\n                        <li>\n                            <a class=\"icon rounded fa-twitter\"><span class=\"label\">Twitter</span></a>\n                        </li>\n                        <li>\n                            <a class=\"icon rounded fa-google-plus\"><span class=\"label\">Google+</span></a>\n                        </li>\n                        <li>\n                            <a class=\"icon rounded fa-linkedin\"><span class=\"label\">LinkedIn</span></a>\n                        </li>\n                    </ul>\n                </div>\n            </div>\n        </div>\n    </footer>\n\n</body>\n\n</html>"
+module.exports = "<!DOCTYPE html>\n<!--\n\tTransit by TEMPLATED\n\ttemplated.co @templatedco\n\tReleased for free under the Creative Commons Attribution 3.0 license (templated.co/license)\n-->\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <title></title>\n    <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />\n    <meta name=\"description\" content=\"\" />\n    <meta name=\"keywords\" content=\"\" />\n    <!--[if lte IE 8]><script src=\"js/html5shiv.js\"></script><![endif]-->\n    <script src=\"js/jquery.min.js\"></script>\n    <script src=\"js/skel.min.js\"></script>\n    <script src=\"js/skel-layers.min.js\"></script>\n    <script src=\"js/init.js\"></script>\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/label.css\">\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/label.min.css\">\n\n\n</head>\n\n<body>\n\n    <!-- Header -->\n    <header id=\"header\">\n        <h1><a href=\"/\">CSE15</a></h1>\n        <nav id=\"nav\">\n            <ul>\n                <li><a routerLink=\"/\">Home</a></li>\n                <li><a routerLink=\"/people\">People</a></li>\n                <li><a routerLink=\"/timeline\">Timeline</a></li>\n                <li><a routerLink=\"#\">Results</a></li>\n                <li><a routerLink=\"#\">Notes</a></li>\n                <li><a routerLink=\"/login\">Sign In</a></li>\n                <li><a routerLink=\"/signup\">Sign Up</a></li>\n            </ul>\n        </nav>\n    </header>\n\n    <!-- Main -->\n\n    <section id=\"one\" class=\"wrapper style1 special\">\n        <header class=\"major\">\n            <h2>Journey of CSE15</h2>\n        </header>\n        <div class=\"container\">\n\n            <div class=\"4u 12u$(medium)\">\n\n                <ul *ngFor=\"let event of events\" class=\"btn-default\">\n                    <label class=\"ui teal ribbon label\" style=\"display: inherit; line-height: 2; max-width: 25em; font-size: 1em;\">{{event.EventDate.split(\"T\")[0]}}</label>\n                    <section class=\"box\">\n                        <h3 style=\"color: cornflowerblue;\">{{event.EventName}}</h3>\n                        <!--<p>{{event.EventDate}}</p>-->\n                        <li>\n                            <p style=\"text-align: justify\">{{event.EventDescription}}</p>\n                        </li>\n                        <p style=\"text-align: left; padding-left: 10%\"><a href=\"{{event.photoAlbum1}}\">Photo Album1</a></p>\n                        <p style=\"text-align: left; padding-left: 10%\"><a href=\"{{event.photoAlbum2}}\">Photo Album2</a></p>\n                        <p style=\"text-align: left; padding-left: 10%\"><a href=\"{{event.photoAlbum3}}\">Photo Album3</a></p>\n\n                        <div class=\"dbimg\">\n                            <img id=\"img1\" src=\"{{event.photo1}}\" height=\"200px\">\n                            <img id=\"img1\" src=\"{{event.photo2}}\" height=\"200px\">\n                            <img id=\"img1\" src=\"{{event.photo3}}\" height=\"200px\">\n                            <img id=\"img1\" src=\"{{event.photo4}}\" height=\"200px\">\n                            <img id=\"img1\" src=\"{{event.photo5}}\" height=\"200px\">\n                        </div>\n                    </section>\n                </ul>\n\n\n            </div>\n        </div>\n    </section>\n\n\n    <!-- Footer -->\n    <footer id=\"footer\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"8u 12u$(medium)\">\n                    <ul class=\"copyright\">\n                        <li>&copy; Untitled. All rights reserved.</li>\n                        <li>Design: <a href=\"http://templated.co\">TEMPLATED</a></li>\n                        <li>Images: <a href=\"http://unsplash.com\">Unsplash</a></li>\n                    </ul>\n                </div>\n                <div class=\"4u$ 12u$(medium)\">\n                    <ul class=\"icons\">\n                        <li>\n                            <a class=\"icon rounded fa-facebook\"><span class=\"label\">Facebook</span></a>\n                        </li>\n                        <li>\n                            <a class=\"icon rounded fa-twitter\"><span class=\"label\">Twitter</span></a>\n                        </li>\n                        <li>\n                            <a class=\"icon rounded fa-google-plus\"><span class=\"label\">Google+</span></a>\n                        </li>\n                        <li>\n                            <a class=\"icon rounded fa-linkedin\"><span class=\"label\">LinkedIn</span></a>\n                        </li>\n                    </ul>\n                </div>\n            </div>\n        </div>\n    </footer>\n\n</body>\n\n</html>"
 
 /***/ }),
 

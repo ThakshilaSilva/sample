@@ -279,6 +279,12 @@ app.get('/editAcademicEvents', (req, res) => {
     // res.send(__dirname);
 });
 
+app.get('/lTimeline', (req, res) => {
+    // console.log(__dirn.ame);
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+    // res.send(__dirname);
+});
+
 /*app.post("/upload_avatar", function(req, res) {
         console.log(req.body.img);
         upload(req, res, function(err) {

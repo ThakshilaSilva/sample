@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var path = require('path');
 var UserControllers = require('./controllers/userController');
 var BatchController = require('./controllers/batchController');
+var opn = require('opn');
 
 var app = express();
 
@@ -301,6 +302,8 @@ app.get('/userl', (req, res) => {
     res.sendFile(path.join(__dirname, "/public/index.html"));
     // res.send(__dirname);
 });
+
+
 
 /*app.post("/upload_avatar", function(req, res) {
         console.log(req.body.img);

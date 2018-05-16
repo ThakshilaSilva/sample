@@ -98,7 +98,7 @@ const getEvents = () => {
                 console.log(' Error getting mysql_pool connection: ' + err);
                 throw err;
             }
-            connection.query("SELECT * FROM batchevent",
+            connection.query("SELECT * FROM batchevent ORDER BY EventDate DESC",
                 (err, res) => {
                     connection.connect();
                     if (err) {

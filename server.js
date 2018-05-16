@@ -309,6 +309,12 @@ app.get('/addAcdemicEvents', (req, res) => {
     // res.send(__dirname);
 });
 
+app.get('/editAcaEvents', (req, res) => {
+    // console.log(__dirn.ame);
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+    // res.send(__dirname);
+});
+
 
 
 /*app.post("/upload_avatar", function(req, res) {

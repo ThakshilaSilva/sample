@@ -166,16 +166,6 @@ app.post("/updateBatchEvent", (req, res) => {
 
 const multer = require('multer');
 
-/*const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, './uploads')
-    },
-    filename: function(req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now() + '.jpg')
-    }
-});
-
-const upload = multer({ storage: storage }).single('img');*/
 
 var store = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -204,137 +194,79 @@ app.post('/uploadProfilePic', function(req, res, next) {
         if (err) {
             return res.status(501).json({ error: err });
         }
-        //do all database record saving activity
         return res.json({ originalname: req.file.originalname, uploadname: req.file.filename });
     });
 });
 
 app.get('/', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
-
-
 
 app.get('/login', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
+
 app.get('/signup', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
+
 app.get('/people', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
 
 app.get('/timeline', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
 
 app.get('/editProfile', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
 
 app.get('/achievement', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
 
 app.get('/admin', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
+
 app.get('/addBatchEvents', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
 
 app.get('/editBatchEvents', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
 
 app.get('/addAcademicEvents', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
 
 app.get('/editAcademicEvents', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
 
 app.get('/lTimeline', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
 
 app.get('/lPeople', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
 
 app.get('/member', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
+
 app.get('/userl', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
 
 app.get('/addAcdemicEvents', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
 });
 
 app.get('/editAcaEvents', (req, res) => {
-    // console.log(__dirn.ame);
     res.sendFile(path.join(__dirname, "/public/index.html"));
-    // res.send(__dirname);
+
 });
-
-
-
-/*app.post("/upload_avatar", function(req, res) {
-        console.log(req.body.img);
-        upload(req, res, function(err) {
-            console.log("came");
-            if (err) {
-                throw err;
-            }
-            res.json({
-                success: true,
-                message: 'Image was successfully uploaded.'
-            })
-        })
-    })*/
-/*var upload = multer({ dest: 'uploads/' })
-
-app.post('/upload_avatar', upload.single('img'), function(req, res, next) {
-    // req.file is the `avatar` file
-    // req.body will hold the text fields, if there were any
-    console.log(req.body);
-    res.status(204).end();
-})*/

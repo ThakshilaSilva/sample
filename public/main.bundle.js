@@ -2366,15 +2366,11 @@ var MembersComponent = (function () {
         }, function (error) {
             console.log(error);
         });
-        localStorage.removeItem('member');
         console.log(username);
     };
     MembersComponent.prototype.logout = function () {
         localStorage.clear();
         this.router.navigate(['/']);
-    };
-    MembersComponent.prototype.edit = function () {
-        this.router.navigate(['']);
     };
     return MembersComponent;
 }());
@@ -4031,9 +4027,9 @@ var SignupComponent = (function () {
                     profilePic: this.profilePic,
                     userRole: this.userRole
                 }).subscribe(function (result) {
-                    // console.log("Result"+result);
                     alert('Successfully signedup!');
                     if (_this.userRole == "Admin") {
+                        sessionStorage.setItem('id', username);
                         _this.router.navigate(["/admin"]);
                     }
                     else {

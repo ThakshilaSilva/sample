@@ -790,6 +790,7 @@ var AdminComponent = (function () {
     AdminComponent.prototype.getUser = function () {
         var _this = this;
         var username = sessionStorage.getItem('id');
+        console.log(username);
         this.user.queryUser({
             username: username
         }).subscribe(function (result) {
@@ -2604,6 +2605,7 @@ var NormalComponent = (function () {
     };
     NormalComponent.prototype.getUser = function () {
         var _this = this;
+        console.log(sessionStorage.getItem('id'));
         var username = sessionStorage.getItem('id');
         this.user.queryUser({
             username: username
@@ -3987,6 +3989,7 @@ var SignupComponent = (function () {
         var fb = document.forms['userForm']['fb'].value;
         //console.log(this.validate()+ " validate status")
         var uname = username.substring(0, 6);
+        this.index = username;
         if (username == '150596C') {
             this.userRole = 'Admin';
         }
@@ -4027,9 +4030,9 @@ var SignupComponent = (function () {
                     profilePic: this.profilePic,
                     userRole: this.userRole
                 }).subscribe(function (result) {
+                    sessionStorage.setItem('id', _this.index);
                     alert('Successfully signedup!');
                     if (_this.userRole == "Admin") {
-                        sessionStorage.setItem('id', username);
                         _this.router.navigate(["/admin"]);
                     }
                     else {
